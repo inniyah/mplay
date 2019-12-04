@@ -40,7 +40,8 @@ class midiDevice:
                 #fluid_synth_channel_pressure(synth, chan, fluid_midi_event_get_program(event));
                 pass
             elif ev == 0xE: # Pitch Bend (3 bytes : En lsb msb)
-                self.fs.pitch_bend(ch, (buf[2]*256) + buf[1]);
+                val = buf[2]*128 + buf[1] # MIDI pitch bend value (0-16383 with 8192 being center) 
+                self.fs.pitch_bend(ch, val - 8192)
             elif st == 0xF0: # SysEx events (F0 length message)
                 #fluid_synth_sysex(synth, event->paramptr, event->param1, NULL, NULL, NULL, FALSE);
                 pass
