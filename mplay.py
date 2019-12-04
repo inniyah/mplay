@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from __future__ import absolute_import, division
 
@@ -31,8 +31,9 @@ if sys.platform == 'darwin':
     from darwinmidi import midiDevice
 elif sys.platform == 'win32':
     from win32midi import midiDevice
-elif sys.platform == 'linux2':
-    from linux2midi import midiDevice
+elif sys.platform == 'linux':
+    #from linux2midi import midiDevice
+    from fluidsynth2midi import midiDevice
 
 MUTE_ON_OFF = {b'b': ['Bass'], b'g': ['Guitar'],
                b'k': ['Piano', 'Organ', 'Strings', 'Ensemble']}

@@ -11,8 +11,9 @@ if sys.platform == 'darwin':
     from darwinmidi import midiDevice
 elif sys.platform == 'win32':
     from win32midi import midiDevice
-elif sys.platform == 'linux2':
-    from linux2midi import midiDevice
+elif sys.platform == 'linux':
+    #from linux2midi import midiDevice
+    from fluidsynth2midi import midiDevice
 
 debug = False
 gm1 = True
